@@ -12,21 +12,21 @@ Sub Click(Source As Button)
 	Dim bodyItem As NotesRichTextItem
 	Dim plainText As String
 	Dim itemValue  As Variant
-  Dim form As NotesForm
-  Dim view As NotesView
+	Dim form As NotesForm
+	Dim view As NotesView
 
 	Set db = sess.CurrentDatabase
 	Set coll = db.AllDocuments
 	Set doc = coll.GetFirstDocument()
 
-  formName$ = "Document"
+  	formName$ = "Document"
 	Set form = db.GetForm(formName$)
 
 	csvFileName = "C:\export_path\export.csv"
 	csvFileNum = Freefile
 	Open csvFileName For Output As csvFileNum
 
-  ' Support for even English
+  	' Support for even English
 	Print #csvFileNum, Chr(239) & Chr(187) & Chr(191)
 
 	Forall field In form.Fields
@@ -63,10 +63,10 @@ Sub Click(Source As Button)
 			End If
 		End Forall
 
-    ' Write in csv with new line
+    	' Write in csv with new line
 		Print #csvFileNum, csvLine
 
-    ' Add next doc for the loop
+    	' Add next doc for the loop
 		Set doc = coll.GetNextDocument(doc)
 	Wend
 

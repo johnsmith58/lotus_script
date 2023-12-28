@@ -1,3 +1,29 @@
+## Export Lotus Notes Attachments using Lotus Script
+
+##### This script is export Lotus Notes DB with csv and embedded object using Lotus Script.
+
+I used the Button click on Document for easy to use, because I am not familiar with Lotus Notes and also I am only supposed to export data with CSV and embedded objects using this script.
+
+I created files for specific function, I wish that will be helpful.
+
+Can be define more than one database.
+> dbs(1) = "db1.nsf"
+
+Then don't forget to change your database count.
+> Dim dbs(1 To {Int}) As String
+
+I used Document form all of item value, if you used differernt I hope you change here.
+> formName$ = "Document"
+
+Create custom sub directory under specific folder
+> Mkdir exportAttachmentPath$
+
+</br>
+Full Code
+</br>
+</br>
+
+````
 Sub Click(Source As Button)
 
 	Dim sess As New NotesSession
